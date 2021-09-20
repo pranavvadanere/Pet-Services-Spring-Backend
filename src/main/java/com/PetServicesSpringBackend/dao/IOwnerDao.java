@@ -1,10 +1,13 @@
 package com.PetServicesSpringBackend.dao;
 
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
 import com.PetServicesSpringBackend.pojos.Owner;
 
-public interface IOwnerDao {
-	String addOwner(Owner owener);
 
-	String modifyOwner(Owner owner);
+public interface IOwnerDao extends JpaRepository<Owner, Integer>
+{
+
 
 }

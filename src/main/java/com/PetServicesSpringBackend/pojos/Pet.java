@@ -19,11 +19,13 @@ public class Pet implements Serializable {
 	@Id
 	private int id;
 
+	private String name;
+	
 	@Temporal(TemporalType.DATE)
 	@Column(name="birth_date")
 	private Date birthDate;
 
-	private String name;
+	
 
 	@Lob
 	private String notes;
