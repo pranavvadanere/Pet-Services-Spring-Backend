@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.PetServicesSpringBackend.dao.IOwnerDao;
 import com.PetServicesSpringBackend.dto.ErrorResponse;
 import com.PetServicesSpringBackend.dto.ResponseDTO;
 import com.PetServicesSpringBackend.pojos.Owner;
@@ -31,11 +32,21 @@ public class OwnerController {
 
 	@Autowired
 	private IOwnerService ownerService;
+	
+	private IOwnerDao ownerDao;
 
 	public OwnerController() {
 		System.out.println("in cnstr of " + getClass().getName());
 	}
 
+	
+	// create owner rest api
+	@PostMapping("/owner")
+	public Owner createOwner(@RequestBody Owner owner) {
+		return ownerDao.save(owner);
+	}
+	
+	
 	//to add new owner
 	@PostMapping
 	public ResponseEntity<?> addNewOwnerDetails(@RequestBody @Valid Owner transientOwner) {

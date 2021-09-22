@@ -26,7 +26,7 @@ import com.PetServicesSpringBackend.service.IPetService;
 
 
 @RestController
-@RequestMapping("/owner")
+@RequestMapping("/pet")
 @CrossOrigin
 public class PetController {
 
@@ -52,20 +52,20 @@ public class PetController {
 	}
 	
 	
-	//to get pet of owners by Ownerid
-	@GetMapping("/{id}")
-	public ResponseEntity<?> getPetDetailsByOwner(@PathVariable Iterable<Integer> Ownerid) {
-		System.out.println("in get pet details of selected owner " + Ownerid);
-		// invoke service method to get pet details
-		try {
-			return ResponseEntity.ok(petService.ownersPet(Ownerid));
-		} catch (RuntimeException e) {
-			System.out.println("err in get " + e);
-			return new ResponseEntity<>(new ErrorResponse("Fetching pet details failed", e.getMessage()),
-					HttpStatus.BAD_REQUEST);
-		}
-
-	}
+//	//to get pet of owners by Ownerid
+//	@GetMapping("/{id}")
+//	public ResponseEntity<?> getPetDetailsByOwner(@PathVariable Iterable<Integer> Ownerid) {
+//		System.out.println("in get pet details of selected owner " + Ownerid);
+//		// invoke service method to get pet details
+//		try {
+//			return ResponseEntity.ok(petService.ownersPet(Ownerid));
+//		} catch (RuntimeException e) {
+//			System.out.println("err in get " + e);
+//			return new ResponseEntity<>(new ErrorResponse("Fetching pet details failed", e.getMessage()),
+//					HttpStatus.BAD_REQUEST);
+//		}
+//
+//	}
 	
 	
 	@GetMapping("/{id}")

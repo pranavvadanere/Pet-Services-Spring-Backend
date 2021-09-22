@@ -11,6 +11,7 @@ import java.util.List;
  */
 @Entity
 @Table(name="owner")
+
 @NamedQuery(name="Owner.findAll", query="SELECT o FROM Owner o")
 public class Owner implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -38,6 +39,10 @@ public class Owner implements Serializable {
 	private List<Pet> pets;
 
 	public Owner() {
+	}
+
+	public Owner(int i, String string, String string2, String string3, int j, String string4, int k) {
+		// TODO Auto-generated constructor stub
 	}
 
 	public int getId() {
